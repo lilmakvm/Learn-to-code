@@ -1,0 +1,96 @@
+[
+  {
+    "name": "Complete a coding lesson and retain progress",
+    "sanity": true,
+    "viewport": "mobile",
+    "covers": [
+      "lesson challenge validation",
+      "XP rewards",
+      "lesson completion progress",
+      "local progress persistence",
+      "daily learning streak update"
+    ],
+    "description": "Verifies a correct answer completes a lesson, awards XP once, and preserves progress after refresh.",
+    "steps": [
+      "Open Learn and choose HTML",
+      "Open Your first HTML page",
+      "Enter the correct example and check the answer",
+      "Refresh and revisit the lesson"
+    ],
+    "expected": "The lesson remains complete, XP is awarded once, and progress is still visible after refresh."
+  },
+  {
+    "name": "Browse courses and achievements",
+    "viewport": "desktop",
+    "covers": [
+      "course selection",
+      "course search",
+      "lesson list navigation",
+      "achievement progress"
+    ],
+    "description": "Verifies learners can browse the course tracks and see achievements update from completed lessons.",
+    "steps": [
+      "Open Learn",
+      "Search for Python and select it",
+      "Complete a starter lesson",
+      "Open Achievements and review the unlocked progress"
+    ],
+    "expected": "The selected course lessons are available and achievement progress reflects the completed lesson."
+  },
+  {
+    "name": "Run a code playground preview",
+    "viewport": "desktop",
+    "covers": [
+      "HTML code editing",
+      "playground preview",
+      "reset starter code"
+    ],
+    "description": "Verifies the learner can edit HTML, run a preview, and restore the starter example.",
+    "steps": [
+      "Open Playground",
+      "Enter a heading in the HTML editor",
+      "Select Run preview",
+      "Select Reset"
+    ],
+    "expected": "The preview displays the entered heading and Reset restores the starter HTML example."
+  },
+  {
+    "name": "Show feedback for an incorrect lesson answer",
+    "viewport": "mobile",
+    "covers": [
+      "incorrect answer feedback",
+      "hint display",
+      "input correction"
+    ],
+    "description": "Verifies incorrect answers are not rewarded and learners can request a useful hint.",
+    "steps": [
+      "Open the first HTML lesson",
+      "Enter an incorrect answer",
+      "Select Check answer",
+      "Select Get a hint"
+    ],
+    "expected": "An incorrect-answer message and a useful hint appear, and XP does not increase."
+  },
+  {
+    "name": "Change and retain app settings",
+    "viewport": "mobile",
+    "covers": [
+      "settings navigation",
+      "functional settings button",
+      "dark and light theme",
+      "text size preference",
+      "reduced motion preference",
+      "app logo and launch splash branding",
+      "app icon and hero image visibility"
+    ],
+    "description": "Verifies the settings entry opens a working preferences page and saved appearance choices persist across reloads.",
+    "steps": [
+      "Open Settings using the sidebar settings button",
+      "Switch to Light theme",
+      "Choose Large text and enable Reduce motion",
+      "Refresh the app and reopen Settings",
+      "Switch back to Dark theme"
+    ],
+    "expected": "Settings opens, each control changes its corresponding appearance preference, and the selected settings remain after refresh. The app launch screen and home branding display the uploaded logo, icon, and hero image."
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "headline": "Start your coding journey",
+  "subtitle": "Sign in to save lessons and progress across devices.",
+  "style": {
+    "mode": "dark",
+    "accentColor": "#8b68f4",
+    "backgroundColor": "#0b0a12",
+    "panelColor": "#171522",
+    "textColor": "#f4f3fb",
+    "fontFamily": "DM Sans, system-ui, sans-serif",
+    "borderRadius": 12
+  }
+}
