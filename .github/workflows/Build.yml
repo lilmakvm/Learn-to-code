@@ -1,0 +1,71 @@
+
+name: Build Learn to Code
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Capacitor
+        run: npm install --no-save @capacitor/core@^7 @capacitor/cli@^7 @capacitor/android@^7
+
+      - name: Create Capacitor configuration
+        run: |
+          cat > capacitor.config.json <<'EOF'
+          {
+            "appId": "com.lilma.learntocode",
+            "appName": "Learn to Code",
+            "webDir": "dist"
+          }
+          EOF
+
+      - name: Build web app
+        run: npm run build
+
+      - name: Build Android APK
+        run: |
+          npx cap add android
+          npx cap sync android
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon
+
+      - name: Package PWA
+        run: |
+          cd dist
+          zip -r ../Learn-to-code-PWA.zip .
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Learn-to-code-APK
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+
+      - name: Upload PWA
+        uses: actions/upload-artifact@v4
+        with:
+          name: Learn-to-code-PWA
+          path: Learn-to-code-PWA.zip
+          
